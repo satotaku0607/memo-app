@@ -1,0 +1,365 @@
+body {
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+  color: #333;
+  background-color: #f7f8fa;
+}
+
+.wrapper {
+  padding: 60px 24px;
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.panel {
+  margin-bottom: 24px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.panel-title {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ---------- 入力欄・ボタン ---------- */
+.input-field {
+  width: 240px;
+  padding: 6px 8px;
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+}
+.input-short {
+  width: 140px;
+}
+.input-date {
+  width: 150px;
+}
+
+.btn {
+  width: 72px;
+  padding: 6px 8px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none;
+}
+.btn:hover {
+  opacity: 0.85;
+}
+.btn-delete {
+  background-color: #dc3545;
+}
+
+/* ---------- メンバー ---------- */
+.member-add-panel,
+.task-add-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.member-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.member-list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px 4px 12px;
+  background-color: #e8f1ff;
+  border-radius: 999px;
+  font-size: 14px;
+}
+.member-remove {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #666;
+  cursor: pointer;
+}
+.member-remove:hover {
+  background-color: #cddff9;
+}
+
+/* ---------- タスク一覧（シート風テーブル） ---------- */
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.list-header .panel-title {
+  margin-bottom: 0;
+}
+.list-tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.check-label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.task-show-panel {
+  overflow-x: auto;
+}
+
+.task-table {
+  width: 100%;
+  min-width: 760px;
+  font-size: 14px;
+}
+.task-table th,
+.task-table td {
+  padding: 6px 8px;
+  border: solid 1px #e3e3e3;
+  vertical-align: middle;
+  text-align: left;
+}
+.task-table th {
+  background-color: #f1f3f5;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.task-table th.member-head {
+  text-align: center;
+  background-color: #e8f1ff;
+}
+.task-table td.col-no {
+  width: 36px;
+  text-align: center;
+  color: #888;
+}
+
+/* セル内の入力欄は枠なしでシートっぽく */
+.cell-input {
+  width: 100%;
+  padding: 4px;
+  border: solid 1px transparent;
+  border-radius: 3px;
+  background-color: transparent;
+  font-size: 14px;
+  font-family: inherit;
+}
+.cell-input:hover {
+  border-color: #ddd;
+}
+.cell-input:focus {
+  border-color: #007bff;
+  background-color: #fff;
+  outline: none;
+}
+.cell-date {
+  width: 130px;
+}
+
+/* ステータスのプルダウン（色分け） */
+.status-select {
+  width: 80px;
+  padding: 4px;
+  border: none;
+  border-radius: 999px;
+  font-size: 13px;
+  text-align: center;
+  cursor: pointer;
+}
+.status-未着手 {
+  background-color: #ffe3e3;
+  color: #c92a2a;
+}
+.status-対応中 {
+  background-color: #fff3bf;
+  color: #8a6d00;
+}
+.status-済 {
+  background-color: #d3f9d8;
+  color: #2b8a3e;
+}
+.status-ー {
+  background-color: #f1f3f5;
+  color: #868e96;
+}
+
+/* 期限切れ・完了の行 */
+.row-overdue .cell-date {
+  color: #dc3545;
+  font-weight: bold;
+}
+.row-done td {
+  background-color: #fafafa;
+}
+.row-done .cell-title {
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* 操作ボタン */
+.col-actions {
+  white-space: nowrap;
+}
+.chat-open-btn,
+.row-delete-btn {
+  padding: 4px 8px;
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chat-open-btn:hover {
+  border-color: #007bff;
+  color: #007bff;
+}
+.row-delete-btn {
+  margin-left: 4px;
+  color: #dc3545;
+}
+.row-delete-btn:hover {
+  border-color: #dc3545;
+}
+
+.empty-message {
+  padding: 24px;
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ---------- チャットパネル ---------- */
+.chat-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.chat-overlay.is-open {
+  display: block;
+}
+
+.chat-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  max-width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transform: translateX(100%);
+  transition: transform 0.25s;
+}
+.chat-panel.is-open {
+  transform: translateX(0);
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+}
+
+.chat-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: solid 1px #eee;
+}
+.chat-label {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: #888;
+}
+.chat-title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+.chat-close {
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+
+.chat-log {
+  flex: 1;
+  padding: 16px 20px;
+  overflow-y: auto;
+  background-color: #f7f8fa;
+}
+.chat-log li {
+  margin-bottom: 14px;
+}
+.chat-meta {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: #888;
+}
+.chat-meta strong {
+  margin-right: 6px;
+  font-weight: bold;
+  color: #333;
+}
+.chat-bubble {
+  display: inline-block;
+  max-width: 85%;
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 10px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+/* 自分（選択中のユーザー）の発言は右寄せ・青 */
+.chat-log li.is-me {
+  text-align: right;
+}
+.chat-log li.is-me .chat-bubble {
+  background-color: #007bff;
+  color: #fff;
+  text-align: left;
+}
+.chat-empty {
+  color: #aaa;
+  font-size: 14px;
+  text-align: center;
+}
+
+.chat-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 20px 20px;
+  border-top: solid 1px #eee;
+}
+.chat-user {
+  width: 100%;
+}
+.chat-text {
+  flex: 1;
+  resize: none;
+  line-height: 1.4;
+}
+.chat-form .btn {
+  align-self: flex-end;
+}

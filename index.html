@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>チームタスク管理</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ここから下に、ブラウザに表示したい内容を記述する ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+    <div id="app" class="wrapper">
+      <h1 class="title">チームタスク管理</h1>
+
+      <!-- メンバー管理 -->
+      <section class="panel">
+        <h2 class="panel-title">メンバー</h2>
+        <div class="member-add-panel">
+          <input type="text" id="memberName" class="input-field input-short" placeholder="名前を入力" />
+          <button id="addMemberBtn" class="btn">追加</button>
+        </div>
+        <ul id="memberList" class="member-list"></ul>
+      </section>
+
+      <!-- タスク追加 -->
+      <section class="panel">
+        <h2 class="panel-title">タスク追加</h2>
+        <div class="task-add-panel">
+          <input type="text" id="todoText" class="input-field" placeholder="タスク名" />
+          <input type="date" id="todoDue" class="input-field input-date" />
+          <input type="text" id="todoRequester" class="input-field input-short" placeholder="依頼主" />
+          <button id="addTodoBtn" class="btn">追加</button>
+        </div>
+      </section>
+
+      <!-- タスク一覧（シート風） -->
+      <section class="panel">
+        <div class="list-header">
+          <h2 class="panel-title">タスク一覧</h2>
+          <div class="list-tools">
+            <label class="check-label"><input type="checkbox" id="hideDone" /> 完了を隠す</label>
+            <button id="deleteTodoBtn" class="btn btn-delete">全削除</button>
+          </div>
+        </div>
+        <div class="task-show-panel">
+          <table class="task-table">
+            <thead id="taskHead"></thead>
+            <tbody id="todoList"></tbody>
+          </table>
+          <p id="emptyMessage" class="empty-message">タスクはまだありません。上のフォームから追加してください。</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- タスクごとのチャットルーム（右からスライドするパネル） -->
+    <div id="chatOverlay" class="chat-overlay"></div>
+    <aside id="chatPanel" class="chat-panel">
+      <div class="chat-header">
+        <div>
+          <p class="chat-label">チャットルーム</p>
+          <h2 id="chatTitle" class="chat-title"></h2>
+        </div>
+        <button id="closeChatBtn" class="chat-close">×</button>
+      </div>
+      <ul id="chatLog" class="chat-log"></ul>
+      <div class="chat-form">
+        <select id="chatUser" class="input-field chat-user"></select>
+        <textarea id="chatText" class="input-field chat-text" rows="2" placeholder="メッセージ（Enterで送信 / Shift+Enterで改行）"></textarea>
+        <button id="sendChatBtn" class="btn">送信</button>
+      </div>
+    </aside>
+
+    <!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ここから上に、ブラウザに表示したい内容を記述する ↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
